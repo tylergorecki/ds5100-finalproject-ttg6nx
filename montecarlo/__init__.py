@@ -1,0 +1,1 @@
+print('Montecarlo package imported successfully!')
