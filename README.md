@@ -1,1 +1,3 @@
-# ds5100-finalproject-ttg6nx
+# DS5100 Final Project
+
+Tyler Gorecki
