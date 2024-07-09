@@ -41,22 +41,58 @@ class MontecarloTest(unittest.TestCase):
             print("There is an error")
 
     def test_game_show_play(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        game1.play(5)
+        recent_game = game1.show_recent_play()
         pass
 
     def test_analyzer_init(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        analyzer1 = Analyzer(game1)
         pass
 
     def test_analyzer_jackpot(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        analyzer1 = Analyzer(game1)
         pass
 
     def test_analyzer_jackpot(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        analyzer1 = Analyzer(game1)
         pass
 
     def test_analyzer_face_counts(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        analyzer1 = Analyzer(game1)
         pass
 
     def test_analyzer_combo_count(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        analyzer1 = Analyzer(game1)
         pass
 
     def test_analyzer_permutation_count(self):
+        die1 = Die(['A','B','C'])
+        die2 = (['A','B','C'])
+        die3 = (['A','B','C'])
+        game1 = Game([die1, die2, die3])
+        analyzer1 = Analyzer(game1)
         pass
