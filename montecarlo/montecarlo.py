@@ -138,7 +138,10 @@ class Game:
 
     def play(self, rolls):
         """
-        
+        This method takes an integer parameter to specify the number of times the dice 
+        should be rolled. These values are then saved in a private data frame in wide 
+        format. The roll number is named index starting with 0 and each die index is the 
+        column name, with the values being faces rolled for each instance. 
 
         Parameters
         ----------
@@ -155,15 +158,17 @@ class Game:
 
     def show_recent_play(self, df_form = 'wide'):
         """
-        
+        Returns a copy of the private data frame created by the play function to the user. 
+        Takes a parameter that controls whether the data frame is returned in narrow or 
+        wide form. 
 
         Parameters
         ----------
-        df_form : must be a string value in {'narrow', 'wide'}
+        df_form : must be a string value in {'narrow', 'wide'}, default is 'wide'
 
         Returns
         -------
-        Narrow or wide formed data frame consisting of the data from the most recent play() 
+        Narrow or wide formed data frame consisting of the data from the most recent play 
         function call by the Game object
 
         Raises
@@ -183,12 +188,13 @@ class Game:
 
 class Analyzer:
     """
-    
+    An Analyzer object takes the result of a Game object and computes various descriptive 
+    statistical properties about it. 
     """
 
     def __init__(self, game):
         """
-        Initializes an Analyzer object
+        Initializes an Analyzer object from a Game object input. 
 
         Parameters
         ----------
@@ -201,7 +207,7 @@ class Analyzer:
         Raises
         ------
         ValueError
-            when input parameter is not a game object
+            when input parameter is not a Game object
         """
 
         if type(game) != Game:
@@ -211,7 +217,8 @@ class Analyzer:
 
     def jackpot(self):
         """
-        
+        A jackpot is a result in which all faces are the same for every roll of an individual 
+        die. This method computes how many times this occurs among the dice in the game. 
 
         Parameters
         ----------
@@ -219,7 +226,7 @@ class Analyzer:
 
         Returns
         -------
-        
+        An integer for the number of jackpots. 
         """
 
         df = self.game.show_recent_play()
@@ -228,7 +235,8 @@ class Analyzer:
 
     def face_counts_per_roll(self):
         """
-         
+        Computes the number of times each face is rolled in each event, returning a data 
+        frame of the results. 
 
         Parameters
         ----------
@@ -236,7 +244,8 @@ class Analyzer:
 
         Returns
         -------
-        
+        Data frame in wide format containing roll number as index, face values as columns, 
+        and count values in the cells. 
         """
 
         df = self.game.show_recent_play()
@@ -245,7 +254,8 @@ class Analyzer:
 
     def combo_count(self):
         """
-        
+        Computes the distinct combinations of faces rolled and their counts. Here, the order 
+        does not matter. The method returns a data frame of the results. 
 
         Parameters
         ----------
@@ -253,7 +263,8 @@ class Analyzer:
 
         Returns
         -------
-        
+        Data frame with a MultiIndex of distinct combinations and a column for the associated 
+        counts values. 
         """
         
         df = self.game.show_recent_play()
@@ -264,6 +275,8 @@ class Analyzer:
 
     def permutation_count(self):
         """
+        Computes the distinct permutations of faces rolled and their counts. Here, the order 
+        does matter. The method returns a data frame of the results. 
         
 
         Parameters
@@ -272,7 +285,8 @@ class Analyzer:
 
         Returns
         -------
-        
+        Data frame with a MultiIndex of distinct permutations and a column for the associated 
+        count values. 
         """
 
         df = self.game.show_recent_play()

@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name = 'Montecarlo package', 
+    name = 'montecarlo', 
     version = '1.0.0', 
     url = 'https://github.com/tylergorecki/ds5100-finalproject-ttg6nx', 
     author = 'Tyler Gorecki', 
