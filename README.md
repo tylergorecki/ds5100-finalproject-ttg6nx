@@ -3,6 +3,10 @@
 **Project:** Monte Carlo Simulator
 **Name:** Tyler Gorecki
 
+### Installation
+```bash
+pip install montecarlo
+```
 
 ### Importing
 ```python
