@@ -38,7 +38,7 @@ The code above creates an unfair die in which a one is three times more likely t
 
 ### Play a game
 
-
+A game can be created from a single Die object or multiple. You are able to play the game which means rolling the dice to get an outcome. 
 
 ```python
 game = Game([die, die])
@@ -46,11 +46,11 @@ game.play(10)
 game.show_recent_play()
 ```
 
-
+The code above initializes the game by inputting a list of Die objects into the Game() function. The play function rolls each of the dice 10 times, saving the results in a private data frame. The final line allows the user to access that data frame containing the results from the rolls. 
 
 ### Analyze a game
 
-
+An analyzer can be created from a Game object. This can be used to gather insights about the results of the dice rolls. There are multiple methods in the Analyzer class, which are shown below, that can give the user information about the roll outcomes. 
 
 ```python
 analyzer = Analyzer(game)
@@ -60,6 +60,7 @@ analyzer.combo_count()
 analyzer.permutation_count()
 ```
 
+The code above initializes the analyzer by inputting a game, created previously. The four analysis methods contained within the class provide analysis on the dice outcomes, including how many times they were all the same on a roll and counts of combinations. More information on each of these methods is shown below. 
 
 ## API Description
 
