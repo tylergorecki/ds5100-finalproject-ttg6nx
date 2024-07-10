@@ -82,9 +82,9 @@ class MontecarloTest(unittest.TestCase):
         game = Game([die1, die2, die3])
 
         game._play_dice = pd.DataFrame({
-            0: ['A','A','A'], 
-            1: ['A','B','C'], 
-            2: ['B','B','B']
+            0: ['A','A','B'], 
+            1: ['A','B','B'], 
+            2: ['A','C','B']
         })
 
         analyzer = Analyzer(game)
