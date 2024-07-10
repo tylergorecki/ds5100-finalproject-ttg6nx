@@ -217,8 +217,8 @@ class Analyzer:
 
     def jackpot(self):
         """
-        A jackpot is a result in which all faces are the same for every roll of an individual 
-        die. This method computes how many times this occurs among the dice in the game. 
+        A jackpot is a result in which all faces are the same for each roll of all dice in
+        the game. This method computes how many times this occurs among all rolls in the game. 
 
         Parameters
         ----------
@@ -230,8 +230,9 @@ class Analyzer:
         """
 
         df = self.game.show_recent_play()
+        df_uniques = [len(set(df.loc[i])) == 1 for i in range(len(df))]
 
-        return sum(df.nunique(axis = 0) == 1)
+        return sum(df_uniques)
 
     def face_counts_per_roll(self):
         """
