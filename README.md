@@ -65,6 +65,8 @@ analyzer.permutation_count()
 
 ### Die class
 
+The die class contains the following methods and attributes: 
+
 ```python
 class Die:
     """
