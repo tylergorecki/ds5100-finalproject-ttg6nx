@@ -27,7 +27,7 @@ You can also call 'import montecarlo.montecarlo' in Python but must then call 'm
 
 ### Create dice
 
-Individual die objects are able to be created with default weights for each 'side' of 1, but that can also be modified. Create a six-sided die using the code below: 
+Individual Die objects are able to be created with default weights for each 'side' of 1, but that can also be modified. Create a six-sided die using the code below: 
 
 ```python
 die = Die(np.array([1,2,3,4,5,6]))
@@ -39,7 +39,7 @@ The code above creates an unfair die in which a one is three times more likely t
 
 ### Play a game
 
-A game can be created from a single Die object or multiple. You are able to play the game which means rolling the dice to get an outcome. 
+A Game can be created from a single Die object or multiple. You are able to play the game which means rolling the dice to get an outcome. 
 
 ```python
 game = Game([die, die])
@@ -51,7 +51,7 @@ The code above initializes the game by inputting a list of Die objects into the 
 
 ### Analyze a game
 
-An analyzer can be created from a Game object. This can be used to gather insights about the results of the dice rolls. There are multiple methods in the Analyzer class, which are shown below, that can give the user information about the roll outcomes. 
+An Analyzer can be created from a Game object. This can be used to gather insights about the results of the dice rolls. There are multiple methods in the Analyzer class, which are shown below, that can give the user information about the roll outcomes. 
 
 ```python
 analyzer = Analyzer(game)
@@ -67,7 +67,7 @@ The code above initializes the analyzer by inputting a game, created previously.
 
 ### Die class
 
-The die class contains the following methods and attributes: 
+The Die class contains the following methods and attributes: 
 
 ```python
 class Die:
@@ -150,7 +150,7 @@ class Die:
 
 ### Game class
 
-The game class contains the following methods and attributes: 
+The Game class contains the following methods and attributes: 
 
 ```python
 class Game:
@@ -214,7 +214,7 @@ class Game:
 
 ### Analyzer class
 
-The analyzer class contains the following methods and attributes: 
+The Analyzer class contains the following methods and attributes: 
 
 ```python
 class Analyzer:
