@@ -35,7 +35,7 @@ coin.change_weight(1,3)
 coin.current_die_state()
 ```
 
-The code above creates an unfair die in which a one is three times more likely to appear than the rest of the numbers. This code also outputs each of the sides as well as their respective weights. 
+The code above creates an unfair die in which a one is three times more likely to appear than each of the rest of the numbers. The final line of this code also outputs each side with their respective weights. 
 
 ### Play a game
 
@@ -61,7 +61,7 @@ analyzer.combo_count()
 analyzer.permutation_count()
 ```
 
-The code above initializes the analyzer by inputting a game, created previously. The four analysis methods contained within the class provide analysis on the dice outcomes, including how many times they were all the same on a roll and counts of combinations. More information on each of these methods is shown below. 
+The code above initializes the analyzer by inputting a game, created previously. The four analysis methods contained within the class provide analysis on the dice outcomes, including how many times they were all the same on a roll and counts of combinations. More information on what each of these methods does is shown below. 
 
 ## API Description
 
@@ -72,15 +72,12 @@ The Die class contains the following methods and attributes:
 ```python
 class Die:
     """
-    A Die is an object with N sides ('faces') and W weights and can be rolled to select 
-    a face. By default, each of the sides have a weight of 1, but that can be changed using 
-    a method in this class to adjust individual sides. Each side is unique and the Die object can be rolled one or more times, resulting in a single face for each roll. 
+    A Die is an object with N sides ('faces') and W weights and can be rolled to select a face. By default, each of the sides have a weight of 1, but that can be changed using a method in this class to adjust individual sides. Each side is unique and the Die object can be rolled one or more times, resulting in a single face for each roll. 
     """
 
     def __init__(self, face_values):
         """
-        Initializes a Die object and saves the faces and weights of the Die in a private data 
-        frame with faces as the index. 
+        Initializes a Die object and saves the faces and weights of the Die in a private data frame with faces as the index. 
 
         Parameters
         ----------
@@ -100,8 +97,7 @@ class Die:
         
     def change_weight(self, face, new_val):
         """
-        This method changes the weight of a single side. It takes a face and a numeric value 
-        as inputs, saving that face's new weight value in the Die's private data frame. 
+        This method changes the weight of a single side. It takes a face and a numeric value as inputs, saving that face's new weight value in the Die's private data frame. 
 
         Parameters
         ----------
@@ -122,8 +118,7 @@ class Die:
 
     def roll(self, rolls = 1):
         """
-        Rolls the Die one or more times. Randomly samples n (number of rolls input) times 
-        and returns the face results of the rolls as a list. 
+        Rolls the Die one or more times. Randomly samples n (number of rolls input) times and returns the face results of the rolls as a list. 
 
         Parameters
         ----------
@@ -155,15 +150,12 @@ The Game class contains the following methods and attributes:
 ```python
 class Game:
     """
-    A Game object consists of rolling one or more similar Die objects one or more times. 
-    The dice should be similar, meaning they have the same number of sides and associated 
-    faces, and Game objects only keep the results of their most recent play. The one attribute of the class is a list of the Die objects the game contains. 
+    A Game object consists of rolling one or more similar Die objects one or more times. The dice should be similar, meaning they have the same number of sides and associated faces, and Game objects only keep the results of their most recent play. The one attribute of the class is a list of the Die objects the game contains. 
     """
 
     def __init__(self, dice):
         """
-        Initializes a Game object, created from a list of similar dice. The dice should 
-        have the same faces. 
+        Initializes a Game object, created from a list of similar dice. The dice should have the same faces. 
 
         Parameters
         ----------
@@ -176,10 +168,7 @@ class Game:
 
     def play(self, rolls):
         """
-        This method takes an integer parameter to specify the number of times the dice 
-        should be rolled. These values are then saved in a private data frame in wide 
-        format. The roll number is named index starting with 0 and each die index is the 
-        column name, with the values being faces rolled for each instance. 
+        This method takes an integer parameter to specify the number of times the dice should be rolled. These values are then saved in a private data frame in wide format. The roll number is named index starting with 0 and each die index is the column name, with the values being faces rolled for each instance. 
 
         Parameters
         ----------
@@ -192,8 +181,7 @@ class Game:
 
     def show_recent_play(self, df_form = 'wide'):
         """
-        Returns a copy of the private data frame created by the play function to the user. 
-        Takes a parameter that controls whether the data frame is returned in narrow or 
+        Returns a copy of the private data frame created by the play function to the user. Takes a parameter that controls whether the data frame is returned in narrow or 
         wide form. 
 
         Parameters
@@ -202,8 +190,7 @@ class Game:
 
         Returns
         -------
-        Narrow or wide formed data frame consisting of the data from the most recent play 
-        function call by the Game object
+        Narrow or wide formed data frame consisting of the data from the most recent play function call by the Game object
 
         Raises
         ------
@@ -219,8 +206,7 @@ The Analyzer class contains the following methods and attributes:
 ```python
 class Analyzer:
     """
-    An Analyzer object takes the result of a Game object and computes various descriptive 
-    statistical properties about it. The one attribute of the class is the Game object itself. 
+    An Analyzer object takes the result of a Game object and computes various descriptive statistical properties about it. The one attribute of the class is the Game object itself. 
     """
 
     def __init__(self, game):
@@ -243,8 +229,7 @@ class Analyzer:
 
     def jackpot(self):
         """
-        A jackpot is a result in which all faces are the same for each roll of all dice in
-        the game. This method computes how many times this occurs among all rolls in the game. 
+        A jackpot is a result in which all faces are the same for each roll of all dice in the game. This method computes how many times this occurs among all rolls in the game. 
 
         Parameters
         ----------
@@ -257,8 +242,7 @@ class Analyzer:
 
     def face_counts_per_roll(self):
         """
-        Computes the number of times each face is rolled in each event, returning a data 
-        frame of the results. 
+        Computes the number of times each face is rolled in each event, returning a data frame of the results. 
 
         Parameters
         ----------
@@ -266,14 +250,12 @@ class Analyzer:
 
         Returns
         -------
-        Data frame in wide format containing roll number as index, face values as columns, 
-        and count values in the cells. 
+        Data frame in wide format containing roll number as index, face values as columns, and count values in the cells. 
         """
 
     def combo_count(self):
         """
-        Computes the distinct combinations of faces rolled and their counts. Here, the order 
-        does not matter. The method returns a data frame of the results. 
+        Computes the distinct combinations of faces rolled and their counts. Here, the order does not matter. The method returns a data frame of the results. 
 
         Parameters
         ----------
@@ -281,15 +263,12 @@ class Analyzer:
 
         Returns
         -------
-        Data frame with a MultiIndex of distinct combinations and a column for the associated 
-        counts values. 
+        Data frame with a MultiIndex of distinct combinations and a column for the associated counts values. 
         """
 
     def permutation_count(self):
         """
-        Computes the distinct permutations of faces rolled and their counts. Here, the order 
-        does matter. The method returns a data frame of the results. 
-        
+        Computes the distinct permutations of faces rolled and their counts. Here, the order does matter. The method returns a data frame of the results. 
 
         Parameters
         ----------
@@ -297,7 +276,6 @@ class Analyzer:
 
         Returns
         -------
-        Data frame with a MultiIndex of distinct permutations and a column for the associated 
-        count values. 
+        Data frame with a MultiIndex of distinct permutations and a column for the associated count values. 
         """
 ```
