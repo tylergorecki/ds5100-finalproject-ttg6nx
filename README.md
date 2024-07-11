@@ -10,6 +10,7 @@
 ### Installation
 
 To install this package, you can run this bash command in the directory of your choosing. 
+
 ```bash
 pip install montecarlo
 ```
