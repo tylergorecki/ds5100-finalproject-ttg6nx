@@ -31,10 +31,10 @@ class Die:
         """
     
         if type(face_values) != type(np.array(1)):
-            raise TypeError("Faces is not a numpy array")
+            raise TypeError("Face values argument is not a numpy array")
         
         if len(face_values) != len(np.unique(face_values)):
-            raise ValueError("Faces does not have all unique values")
+            raise ValueError("Face values argument does not have all unique values")
         
         self._die = pd.DataFrame(data = {
             'face': face_values, 
@@ -71,7 +71,6 @@ class Die:
                 new_val = float(new_val)
             except:
                 raise TypeError("The new value is not numeric or castable as numeric")
-
         
         self._die.loc[face] = new_val
 
@@ -140,7 +139,7 @@ class Game:
         """
         This method takes an integer parameter to specify the number of times the dice 
         should be rolled. These values are then saved in a private data frame in wide 
-        format. The roll number is named index starting with 0 and each die index is the 
+        format. The roll number is row index starting with 0 and each die index is the 
         column name, with the values being faces rolled for each instance. 
 
         Parameters
@@ -164,7 +163,7 @@ class Game:
 
         Parameters
         ----------
-        df_form : must be a string value in {'narrow', 'wide'}, default is 'wide'
+        df_form : must be a string value in ['narrow', 'wide'], default is 'wide'
 
         Returns
         -------
@@ -177,7 +176,7 @@ class Game:
             when df_form input is not one of 'narrow' or 'wide'
         """
 
-        if df_form not in ['wide', 'narrow']:
+        if df_form not in ['narrow', 'wide']:
             raise ValueError("Form invalid, input must be 'narrow' or 'wide'")
 
         if df_form == 'wide':
@@ -217,7 +216,7 @@ class Analyzer:
 
     def jackpot(self):
         """
-        A jackpot is a result in which all faces are the same for each roll of all dice in
+        A jackpot is a result in which all faces are the same for a single roll of all dice in
         the game. This method computes how many times this occurs among all rolls in the game. 
 
         Parameters
