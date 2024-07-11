@@ -277,7 +277,6 @@ class Analyzer:
         """
         Computes the distinct permutations of faces rolled and their counts. Here, the order 
         does matter. The method returns a data frame of the results. 
-        
 
         Parameters
         ----------
